@@ -68,7 +68,7 @@ body {
 </head>
 <body>
 	<!-- menu -->
-	<div id="menu">
+	<div id="menu" style="margin-top: 0px">
 		<ul>
 			<li><a href="main/home.htm">Trang chủ</a></li>
 			<li><a href="main/theloai.htm">Thể loại</a></li>
@@ -83,8 +83,8 @@ body {
 			</li> --%>
 			<li></li>
 			<li>
-				<form class="form-inline my-2 my-lg-0" action="main/login.htm" method="post">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">${login}</button>
+				<form class="form-inline " action="main/login.htm" method="post">
+					<button class="btn btn-outline-success " type="submit">${login}</button>
 				</form> 
 			</li>
 		</ul>

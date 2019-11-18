@@ -39,6 +39,12 @@
 						</div>
 						
 						<div class="form-group">
+							<label for="exampleInputEmail1" class="text-uppercase">Email</label>
+							<form:input path="email" class="form-control" />
+							<form:errors path="email" id ="abc"/>
+						</div>
+						
+						<div class="form-group">
 							<label for="exampleInputEmail1" class="text-uppercase">Tài Khoản</label>
 							<form:input path="userName" class="form-control" />
 							<form:errors path="userName" id ="abc"/>

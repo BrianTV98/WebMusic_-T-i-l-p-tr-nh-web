@@ -6,19 +6,20 @@ public class UserRegister {
 	private String fullName;
 	private String sdt;
 	private String retrypass;
-		
+	private String email;	
 
 	public UserRegister() {
 		super();
 	}
 
-	public UserRegister(String userName, String passWord, String fullName, String sdt, String retrypass) {
+	public UserRegister(String userName, String passWord, String fullName, String sdt, String retrypass, String email) {
 		super();
 		this.userName = userName;
 		this.passWord = passWord;
 		this.fullName = fullName;
 		this.sdt = sdt;
 		this.retrypass = retrypass;
+		this.email = email;
 	}
 
 	public String getRetrypass() {
@@ -57,4 +58,13 @@ public class UserRegister {
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
 }

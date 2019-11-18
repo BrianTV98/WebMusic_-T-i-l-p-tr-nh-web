@@ -3,6 +3,7 @@ encoding//WebContent/WEB-INF/views/base/navBar.jsp=UTF-8
 encoding//WebContent/WEB-INF/views/main/QuanLyNhac.jsp=UTF-8
 encoding//WebContent/WEB-INF/views/test.jsp=UTF-8
 encoding//src/music/controller/AlbumController.java=UTF-8
+encoding//src/music/controller/ForgotPasswordController.java=UTF-8
 encoding//src/music/controller/HomeController.java=UTF-8
 encoding//src/music/controller/Login_Controller.java=UTF-8
 encoding//src/music/controller/RegisterController.java=UTF-8

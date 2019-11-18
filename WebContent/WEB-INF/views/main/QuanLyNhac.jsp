@@ -24,10 +24,10 @@
 </style>
 </head>
 <body>
+
 	<section class="login-block" >
 		<div class="container">
-		<div class="row justify-content-end">
-			
+		<div class="row justify-content-end">	
 			<div class="col-sm-8">
 				<%@include file="../base/navBar.jsp"%>
 			</div>

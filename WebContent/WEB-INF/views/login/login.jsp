@@ -50,6 +50,9 @@
 						<div>
 							<label class="textview-register"><a href="register.htm">Bạn chưa có tài khoản! Hãy đăng kí.</a></label>
 						</div>
+						<div>
+							<label class="textview-register"><a href="/WebNgheNhac/login/forgotpassword.htm" style="padding-left: 50px;"><i>Quên mật khẩu!</i>.</a></label>
+						</div>
 					</form:form>
 
 				</div>

@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.List;
 
+import javax.mail.internet.MimeMessage;
 import javax.servlet.ServletContext;
 import javax.transaction.Transactional;
 
@@ -15,6 +16,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.annotations.common.util.impl.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,35 +36,39 @@ public class TestController {
 	@Autowired
 	ServletContext context;
 	@Autowired
-	SessionFactory factory;
+	JavaMailSender mailer;
 	
-	@RequestMapping(value = "test", method = RequestMethod.GET)
-	public String test( ModelMap model) {
-		Session session= factory.openSession();
-		Query query= session.createQuery("From Music");
-		List<Music> list=  query.list();
-		model.addAttribute("list", list);
+	@RequestMapping(value = "/test",method = RequestMethod.GET)
+	public String test(ModelMap model) {
+		model.addAttribute("from", new String());
+		model.addAttribute("to", new String());
+		model.addAttribute("subject", new String());
+		model.addAttribute("body", new String());
 		return "test";
 	}
 	
-	@RequestMapping(value = "test", method = RequestMethod.POST)
 	
-	public String test(ModelMap model, @RequestParam("file") MultipartFile file) {
-		if(file.isEmpty()) {
-			model.addAttribute("message", "Vui lòng chọn file!");
-		}	
-		else {
-			try {
-				String path="E:\\Lap_trinh_web\\WebNgheNhac\\WebContent\\resources\\image\\"+ file.getOriginalFilename();
-				file.transferTo( new File(path));
-				model.addAttribute("message", path);
-			}
-			catch (Exception e) {
-				model.addAttribute("message", "Lỗi Lưu file");
-			}
+	@RequestMapping(value = "/test",method = RequestMethod.POST)
+	public String test(ModelMap model, @RequestParam("from") String from, @RequestParam("to") String to, @RequestParam("subject") String subject,@RequestParam("body") String body ) {
+		try {
+			//tao mail
+			MimeMessage mail= mailer.createMimeMessage();
+			
+			MimeMessageHelper helper = new MimeMessageHelper(mail);
+			helper.setFrom(from);
+			helper.setTo(to);
+			helper.setReplyTo(from, from);
+			helper.setSubject(subject);
+			helper.setText(body,true);
+			
+			//gui mail
+			mailer.send(mail);
+			model.addAttribute("message", "Gửi mail thành công!");
+		} catch (Exception e) {
+			// TODO: handle exception
+			model.addAttribute("message", "Gửi email thất bại! ");
 		}
-	
-		return "test";
+		return "test" ;
 	}
 
 }

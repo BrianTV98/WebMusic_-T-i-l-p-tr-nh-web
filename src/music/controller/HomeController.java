@@ -81,6 +81,12 @@ public class HomeController {
 			List<Music> list = query.list();
 			model.addAttribute("search", new String());
 			model.addAttribute("list", radom_30_music(list));
+			if(HomeController.username.isEmpty()==true) {
+				model.addAttribute("login", "Đăng Nhập");
+			}
+			else {
+				model.addAttribute("login", "Đăng xuất");
+			}
 			return "main/home";
 		}
 		else {
@@ -91,6 +97,12 @@ public class HomeController {
 			model.addAttribute("message", search);
 			model.addAttribute("search", new String());
 			model.addAttribute("list", radom_30_music(list));
+			if(HomeController.username.isEmpty()==true) {
+				model.addAttribute("login", "Đăng Nhập");
+			}
+			else {
+				model.addAttribute("login", "Đăng xuất");
+			}
 			session.close();
 			return "main/home";
 		}

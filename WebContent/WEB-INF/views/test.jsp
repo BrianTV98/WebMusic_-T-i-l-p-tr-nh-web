@@ -16,29 +16,12 @@
 </head>
 
 <body>
-
-	  <c:forEach var="music" items="${list}" >
-		<div style="padding-left: 50px; padding-right: 50px">
-		<div class="row align-items-start">
-			<div>				 <img alt="" src="list.uriPhoto"
-					style="width: 48px; height: 48px">
-			 </div>
-			
-		<div class="col">
-				<div>${music.tenBaiHat }</div>
-				<div class="row align-items-start">
-					<div class="col">Tác giả: ${music.tacGia }</div>
-					<div class="col">Thể hiện: ${music.caSi}</div>
-				</div>
-			</div>
-			
-			<div class="col">
-				<audio controls="controls"
-				src="${music.uriAudio}"
-				style="width: 400px; height: 48px; align-content: center;"></audio>
-			</div>
-		</div>
-		
-	</div>
-	</c:forEach> 
+	${message}
+	<form action="test.htm" method="post">
+		<p><input name="from" placeholder="From"></p>
+		<p><input name="to" placeholder="to"></p>
+		<p><input name="subject" placeholder="Subject"></p>
+		<p><input name="body" placeholder="Body"></p>
+		<button>Send</button>
+	</form>
 </html>

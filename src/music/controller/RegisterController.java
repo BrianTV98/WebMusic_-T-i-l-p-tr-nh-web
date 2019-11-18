@@ -62,10 +62,12 @@ public class RegisterController {
 		return check;
 		
 	}
+	
 	private User userRegister_to_UserEntiy(UserRegister user) {
 		User userEntity= new User(user.getUserName(), user.getPassWord(), user.getFullName(), user.getSdt());
 		return userEntity;
 	}
+	
 	public boolean valid_Register(ModelMap model, UserRegister user, BindingResult errs) {
 		boolean c=true;
 		if(user.getFullName().isEmpty()==true) {
@@ -118,6 +120,10 @@ public class RegisterController {
 					c=false;
 				}
 			}
+		}
+		if(user.getEmail().isEmpty()==true) {
+			errs.rejectValue("email", "user", "*Vui lòng nhập email");
+			c=false;
 		}
 		return c;
 	}

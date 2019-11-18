@@ -16,6 +16,9 @@ public class User {
 	private String fullName;
 	private String sdt;
 	
+	private String email;
+	
+
 	@OneToMany(mappedBy = "user")
 	private Collection<Music> musics;
 	
@@ -26,6 +29,18 @@ public class User {
 		this.fullName = fullName;
 		this.sdt = sdt;
 	}
+
+	
+	public User(String userName, String passWord, String fullName, String sdt, String email, Collection<Music> musics) {
+		super();
+		this.userName = userName;
+		this.passWord = passWord;
+		this.fullName = fullName;
+		this.sdt = sdt;
+		this.email = email;
+		this.musics = musics;
+	}
+
 
 	public String getSdt() {
 		return sdt;
@@ -66,5 +81,12 @@ public class User {
 
 	public void setMusics(Collection<Music> musics) {
 		this.musics = musics;
+	}
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }
